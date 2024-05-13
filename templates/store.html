@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Store - Brand</title>
+    <link rel="stylesheet" href={% static "assets/bootstrap/css/bootstrap.min.css" %} >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;display=swap">
+</head>
+
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url({% static 'assets/img/bg.jpg' %});">
+   
+    {% include 'includes/nav.html' %}
+   
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="text-center cta-inner rounded">
+                        <h2 class="section-heading mb-5"><span class="section-heading-upper">{{ head_line_1 }}</span><span class="section-heading-lower">{{ head_line_2 }}n</span></h2>
+                        <ul class="list-unstyled text-start mx-auto list-hours mb-5">
+                            {% for day in days %}
+                            <li class="d-flex list-unstyled-item list-hours-item">{{ day }}<span class="ms-auto">{{ day.opening_hours }}</span></li>
+                            {% endfor %}
+                        </ul>
+                        <p class="address mb-5"><em><strong>{{ address_line_1 }}</strong><span><br>{{ address_line_2 }}</span></em></p>
+                        <p class="address mb-0"><small><em>{{ phone_propose }}</em></small><span><br>{{ phone }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'includes/footer.html' %}
+    <script src={% static "assets/bootstrap/js/bootstrap.min.js" %}></script>
+    <script src={% static "assets/js/current-day.js" %} ></script>
+</body>
+</html>
